@@ -6,6 +6,7 @@ import PrizePool from '@/components/PrizePool';
 import GameProgress from '@/components/GameProgress';
 import NFTShowcase from '@/components/NFTShowcase';
 import ChallengePreview from '@/components/ChallengePreview';
+import CirclesRoadmap from '@/components/CirclesRoadmap';
 
 export default function Home() {
   const [prizePool, setPrizePool] = useState(156842);
@@ -23,6 +24,8 @@ export default function Home() {
         
         <HeroSection />
         
+        <CirclesRoadmap />
+        
         <div className="container mx-auto px-4">
           <div className="space-y-24 py-16">
             <div className="grid md:grid-cols-2 gap-8">
@@ -30,7 +33,7 @@ export default function Home() {
               <CircleStatus />
             </div>
             
-            <GameProgress />
+            {/* <GameProgress /> */}
             <NFTShowcase />
             <ChallengePreview />
           </div>
