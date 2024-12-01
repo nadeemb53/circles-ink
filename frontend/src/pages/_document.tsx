@@ -8,6 +8,7 @@ export default function Document() {
           href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap"
           rel="stylesheet"
         />
+        <script src="https://telegram.org/js/telegram-web-app.js"></script>
       </Head>
       <body>
         <Main />
