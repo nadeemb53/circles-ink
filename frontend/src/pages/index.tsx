@@ -87,8 +87,8 @@ function MyHome() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-gray-100">
       <Head>
-        <title>Dante's Circles | Sinful web3 game</title>
-        <meta name="description" content="Journey through nine circles of trading challenges in this Web3 game inspired by Dante's Inferno" />
+        <title>Dante's Circles | Journey Through Nine Circles</title>
+        <meta name="description" content="Enter the seasonal Web3 RPG where Lyra AI guides you through nine circles of challenges. Win up to 60% of the prize pool in this 18-week journey." />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
       </Head>
 
@@ -97,18 +97,13 @@ function MyHome() {
         
         <HeroSection />
         
-        <CirclesRoadmap />
-        
         <div className="container mx-auto px-4">
           <div className="space-y-24 py-16">
-            <div className="grid md:grid-cols-2 gap-8">
-              <PrizePool value={prizePool} />
-              <CircleStatus />
-            </div>
-            
-            {/* <GameProgress /> */}
-            <NFTShowcase />
+            <GameProgress />
             <ChallengePreview />
+            <PrizePool value={156.842} />
+            <NFTShowcase />
+            <CirclesRoadmap />
           </div>
         </div>
       </main>

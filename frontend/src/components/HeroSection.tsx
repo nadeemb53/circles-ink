@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 const HeroSection = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -13,7 +14,7 @@ const HeroSection = () => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    // Spiral animation
+    // Spiral animation representing the nine circles
     let angle = 0;
     const drawSpiral = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -75,29 +76,67 @@ const HeroSection = () => {
       </div>
       
       <div className="relative z-10 text-center w-full max-w-4xl mx-auto">
-        <div className="mb-6 md:mb-8 animate-pulse">
-          <span className="text-red-500 font-medieval text-lg md:text-xl">Powered by</span>
-          <Link 
-            href="https://github.com/nadeemb53/circles-ink/blob/main/virality-framework-doc/README.md" 
-            target="_blank"
-            className="ml-2 text-lg md:text-xl font-medieval text-red-400 hover:text-red-300 transition-colors"
-          >
-            The Virality Framework
-          </Link>
-        </div>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="mb-6 md:mb-8 flex flex-col items-center space-y-2"
+        >
+          <span className="text-red-500 font-medieval text-lg md:text-xl">Season 1 Now Live</span>
+          <div className="text-sm md:text-base">
+            <span className="text-gray-400">Powered by</span>
+            <Link 
+              href="https://github.com/nadeemb53/circles-ink/blob/main/virality-framework-doc/README.md" 
+              target="_blank"
+              className="ml-2 font-medieval text-red-400 hover:text-red-300 transition-colors"
+            >
+              The Virality Framework
+            </Link>
+          </div>
+        </motion.div>
 
-        <h1 className="text-4xl sm:text-6xl md:text-8xl font-medieval mb-4 md:mb-6 text-red-500 animate-glow px-4">
+        <motion.h1 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-4xl sm:text-6xl md:text-8xl font-medieval mb-4 md:mb-6 text-red-500 animate-glow px-4"
+        >
           Dante's Circles
-        </h1>
+        </motion.h1>
         
-        <p className="text-lg sm:text-xl md:text-2xl mb-6 md:mb-8 mx-auto text-gray-300 leading-relaxed 
-                     max-w-[90%] sm:max-w-2xl md:max-w-3xl">
-          Journey through nine circles guided by our AI agent, exploring Dante's Inferno 
-          while facing increasingly challenging trading trials. Each circle unlocks new 
-          chapters of the story and tests your trading prowess.
-        </p>
+        <motion.p 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="text-lg sm:text-xl md:text-2xl mb-6 md:mb-8 mx-auto text-gray-300 leading-relaxed 
+                     max-w-[90%] sm:max-w-2xl md:max-w-3xl"
+        >
+          Journey through nine circles guided by Lyra AI. Each circle presents a unique 
+          challenge - convince Lyra to return your entry fee to advance and claim your share 
+          of the prize pool.
+        </motion.p>
         
-        <div className="flex flex-col items-center space-y-4 px-4">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="flex flex-col items-center space-y-4 px-4"
+        >
+          <div className="grid grid-cols-3 gap-4 mb-8 w-full max-w-lg">
+            <div className="text-center">
+              <div className="text-red-500 font-bold">0.001 ETH</div>
+              <div className="text-sm text-gray-400">Starting Fee</div>
+            </div>
+            <div className="text-center">
+              <div className="text-red-500 font-bold">2 Weeks</div>
+              <div className="text-sm text-gray-400">Per Circle</div>
+            </div>
+            <div className="text-center">
+              <div className="text-red-500 font-bold">60%</div>
+              <div className="text-sm text-gray-400">Final Prize</div>
+            </div>
+          </div>
+
           <Link 
             href="https://replit.com/@nadeemb53/LyraAI"
             target="_blank"
@@ -106,15 +145,15 @@ const HeroSection = () => {
             <button className="w-full sm:w-auto bg-gradient-to-r from-red-700 to-red-900 text-white 
                              px-8 py-4 rounded-lg transform transition-all duration-300 
                              hover:scale-105 hover:from-red-600 hover:to-red-800
-                             font-bold text-lg shadow-lg shadow-red-900/50 animate-float">
-              Enter the First Circle ($1)
+                             font-bold text-lg shadow-lg shadow-red-900/50">
+              Enter Circle 1: Limbo
             </button>
           </Link>
           
-          <div className="text-sm md:text-base text-gray-400">
-            Entry fee increases 5x in subsequent circles
+          <div className="text-sm text-gray-400">
+            💡 NFT holders receive advantages in persuading Lyra
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Flame effects at the bottom */}

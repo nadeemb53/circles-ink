@@ -1,46 +1,62 @@
 import { motion } from 'framer-motion';
 
-const circles = [
-  { name: "Limbo", description: "The First Trading Challenge" },
-  { name: "Lust", description: "Quick Trading Decisions" },
-  { name: "Gluttony", description: "Volume Trading Challenge" },
-  { name: "Greed", description: "Profit Maximization" },
-  { name: "Anger", description: "Volatile Market Trading" },
-  { name: "Heresy", description: "Contrarian Trading" },
-  { name: "Violence", description: "High-Risk Trading" },
-  { name: "Fraud", description: "Complex Trading Patterns" },
-  { name: "Treachery", description: "Final Trading Challenge" }
-];
-
 const GameProgress = () => {
+  const currentCircle = 1; // This would come from your game state
+  const daysRemaining = 14; // This would be calculated based on circle start time
+
   return (
-    <section className="py-16">
-      <h2 className="text-4xl font-medieval text-center mb-12">The Nine Circles</h2>
-      <div className="relative">
-        <div className="absolute left-1/2 h-full w-1 bg-red-800 transform -translate-x-1/2" />
-        
-        {circles.map((circle, index) => (
-          <motion.div
-            key={circle.name}
-            initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className={`flex items-center mb-8 ${
-              index % 2 === 0 ? 'justify-end' : 'justify-start'
-            }`}
-          >
-            <div className="bg-gray-800 rounded-lg p-6 shadow-lg max-w-md relative">
-              <div className="absolute top-1/2 transform -translate-y-1/2 w-4 h-4 bg-red-500 rounded-full
-                            shadow-lg shadow-red-500/50"
-                   style={{ [index % 2 === 0 ? 'right' : 'left']: '-2rem' }} />
-              <h3 className="text-2xl font-medieval text-red-500 mb-2">
-                Circle {index + 1}: {circle.name}
-              </h3>
-              <p className="text-gray-300">{circle.description}</p>
+    <section className="py-12">
+      <div className="container mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="bg-gray-800/50 backdrop-blur-sm rounded-lg p-6 max-w-4xl mx-auto"
+        >
+          <h2 className="text-2xl font-medieval text-red-500 mb-6">Current Progress</h2>
+          
+          <div className="grid md:grid-cols-3 gap-6">
+            <div>
+              <h3 className="text-lg text-gray-300 mb-2">Active Circle</h3>
+              <div className="text-3xl font-bold text-red-500">
+                Circle {currentCircle}
+              </div>
+              <div className="text-sm text-gray-400 mt-1">
+                {daysRemaining} days remaining
+              </div>
             </div>
-          </motion.div>
-        ))}
+            
+            <div>
+              <h3 className="text-lg text-gray-300 mb-2">Entry Fee</h3>
+              <div className="text-3xl font-bold text-red-500">
+                {(0.001 * Math.pow(5, currentCircle - 1)).toFixed(3)} ETH
+              </div>
+              <div className="text-sm text-gray-400 mt-1">
+                Next: {(0.001 * Math.pow(5, currentCircle)).toFixed(3)} ETH
+              </div>
+            </div>
+            
+            <div>
+              <h3 className="text-lg text-gray-300 mb-2">NFT Boost</h3>
+              <div className="text-sm space-y-1">
+                <div className="flex items-center text-gray-400">
+                  <span className="w-2 h-2 bg-green-500 rounded-full mr-2" />
+                  Virgil's Guidance Active
+                </div>
+                <div className="flex items-center text-gray-400">
+                  <span className="w-2 h-2 bg-red-500 rounded-full mr-2" />
+                  2 Extra Attempts with Lyra
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-6 pt-6 border-t border-red-900/30">
+            <div className="text-sm text-gray-400">
+              💡 Tip: Having special NFTs in your wallet may grant you favor with Lyra
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

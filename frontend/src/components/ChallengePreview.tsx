@@ -15,24 +15,24 @@ const ChallengePreview = () => {
         <div className="grid md:grid-cols-2 gap-8">
           <div>
             <h3 className="text-xl md:text-2xl font-medieval text-red-500 mb-4">
-              Interactive Story & Challenge
+              Convince Lyra to Return Your Entry
             </h3>
             <p className="text-sm md:text-base text-gray-300 mb-4">
-              Our AI agent guides you through Dante's narrative, engaging you in conversation
-              and presenting challenges based on each circle's theme.
+              In each circle, Lyra AI presents unique challenges. Engage in conversation,
+              prove your worth, and persuade Lyra to return your entry fee to advance.
             </p>
             <ul className="space-y-3 text-sm md:text-base text-gray-400">
               <li className="flex items-center">
                 <span className="w-1.5 h-1.5 md:w-2 md:h-2 bg-red-500 rounded-full mr-2" />
-                Story-driven trading challenges
+                NFT advantages for easier persuasion
               </li>
               <li className="flex items-center">
                 <span className="w-1.5 h-1.5 md:w-2 md:h-2 bg-red-500 rounded-full mr-2" />
-                AI-powered narrative experience
+                Two-week window per circle
               </li>
               <li className="flex items-center">
                 <span className="w-1.5 h-1.5 md:w-2 md:h-2 bg-red-500 rounded-full mr-2" />
-                Progressive difficulty & rewards
+                20% pot share for circle clearance
               </li>
             </ul>
           </div>
@@ -41,7 +41,7 @@ const ChallengePreview = () => {
             <div className="relative p-4 md:p-6">
               <div className="text-center mb-4 md:mb-6">
                 <div className="text-4xl md:text-5xl font-bold text-red-500 mb-2">
-                  <span className="text-xl md:text-2xl">$</span>1
+                  <span className="text-xl md:text-2xl">ETH</span> 0.001
                 </div>
                 <div className="text-sm md:text-base text-gray-400">Starting Entry Fee</div>
                 <div className="text-xs md:text-sm text-gray-500 mt-1">
@@ -52,12 +52,12 @@ const ChallengePreview = () => {
                 {[1, 2, 3].map((circle) => (
                   <div key={circle} className="flex justify-between">
                     <span className="text-gray-400">Circle {circle}</span>
-                    <span className="text-red-400">${Math.pow(5, circle - 1)}</span>
+                    <span className="text-red-400">{(0.001 * Math.pow(5, circle - 1)).toFixed(3)} ETH</span>
                   </div>
                 ))}
                 <div className="flex justify-between font-medium">
                   <span className="text-gray-400">Circle 9</span>
-                  <span className="text-red-400">${Math.pow(5, 8)}</span>
+                  <span className="text-red-400">{(0.001 * Math.pow(5, 8)).toFixed(3)} ETH</span>
                 </div>
               </div>
               <Link 
