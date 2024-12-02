@@ -61,7 +61,7 @@ const ChallengePreview = () => {
                 </div>
               </div>
               <Link 
-                href="https://app.circles.ink"
+                href="https://replit.com/@nadeemb53/LyraAI"
                 target="_blank"
                 className="block w-full"
               >

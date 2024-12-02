@@ -4,74 +4,95 @@ import Image from 'next/image';
 const circles = [
   {
     name: "Limbo",
-    description: "The First Trading Challenge",
+    description: "The First Challenge",
     theme: "The Dark Forest",
-    challenge: "Basic trading patterns",
-    reward: "20% pot eligibility"
+    challenge: "Convince Lyra to return your entry fee",
+    reward: "20% of circle's pot",
+    icon: "🌲",
+    bgImage: "/assets/circles/limbo-forest.jpg"
   },
   {
     name: "Lust",
-    description: "Quick Trading Decisions",
+    description: "The Second Challenge",
     theme: "Whirlwind of Souls",
-    challenge: "Rapid market movements",
-    reward: "Free entry to Circle 3"
+    challenge: "Navigate through temptation",
+    reward: "20% of circle's pot",
+    icon: "🌪️",
+    bgImage: "/assets/circles/whirlwind.jpg"
   },
   {
     name: "Gluttony",
-    description: "Volume Trading Challenge",
+    description: "The Third Challenge",
     theme: "Eternal Rain",
-    challenge: "High volume trading",
-    reward: "Exclusive NFT drop"
+    challenge: "Overcome excess",
+    reward: "20% of circle's pot",
+    icon: "🌧️",
+    bgImage: "/assets/circles/eternal-rain.jpg"
   },
   {
     name: "Greed",
-    description: "Profit Maximization",
+    description: "The Fourth Challenge",
     theme: "Golden Wasteland",
-    challenge: "Maximum profit targets",
-    reward: "Share in Circle 4 pot"
+    challenge: "Master restraint",
+    reward: "20% of circle's pot",
+    icon: "💰",
+    bgImage: "/assets/circles/golden-wasteland.jpg"
   },
   {
     name: "Anger",
-    description: "Volatile Market Trading",
+    description: "The Fifth Challenge",
     theme: "River Styx",
-    challenge: "Volatile market conditions",
-    reward: "Special badge + benefits"
+    challenge: "Control your emotions",
+    reward: "20% of circle's pot",
+    icon: "🌊",
+    bgImage: "/assets/circles/river-styx.jpg"
   },
   {
     name: "Heresy",
-    description: "Contrarian Trading",
+    description: "The Sixth Challenge",
     theme: "City of Dis",
-    challenge: "Counter-trend trading",
-    reward: "$DANTE token allocation"
+    challenge: "Find your truth",
+    reward: "20% of circle's pot",
+    icon: "🏛️",
+    bgImage: "/assets/circles/city-of-dis.jpg"
   },
   {
     name: "Violence",
-    description: "High-Risk Trading",
+    description: "The Seventh Challenge",
     theme: "River of Blood",
-    challenge: "High-risk position management",
-    reward: "Increased pot share"
+    challenge: "Face your demons",
+    reward: "20% of circle's pot",
+    icon: "🗡️",
+    bgImage: "/assets/circles/river-of-blood.jpg"
   },
   {
     name: "Fraud",
-    description: "Complex Trading Patterns",
+    description: "The Eighth Challenge",
     theme: "Malebolge",
-    challenge: "Advanced trading strategies",
-    reward: "Circle 9 direct entry"
+    challenge: "Uncover deception",
+    reward: "20% of circle's pot",
+    icon: "🎭",
+    bgImage: "/assets/circles/malebolge.jpg"
   },
   {
     name: "Treachery",
-    description: "Final Trading Challenge",
+    description: "The Final Challenge",
     theme: "Frozen Lake",
-    challenge: "Ultimate trading test",
-    reward: "60% of final pot"
+    challenge: "Face the ultimate test",
+    reward: "60% of final pot",
+    icon: "❄️",
+    bgImage: "/assets/circles/frozen-lake.jpg"
   }
 ];
 
 const CirclesRoadmap = () => {
   return (
     <section className="py-16 relative overflow-hidden">
-      {/* Dark Forest Background */}
-      <div className="absolute inset-0 bg-[url('/images/dark-forest.jpg')] bg-cover bg-center opacity-20" />
+      {/* Background Image - Dante's Inferno Map */}
+      <div 
+        className="absolute inset-0 bg-[url('/assets/backgrounds/inferno-map.jpg')] 
+                   bg-cover bg-center opacity-20" 
+      />
       
       {/* Fog Effects */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/80" />
@@ -98,17 +119,21 @@ const CirclesRoadmap = () => {
               <div className={`relative grid md:grid-cols-2 gap-4 bg-black/40 backdrop-blur-sm 
                             rounded-lg p-6 border border-red-900/30 shadow-xl max-w-2xl
                             ${index % 2 === 0 ? 'md:text-right' : ''}`}>
-                {/* Circle Number */}
+                {/* Circle Number & Icon */}
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2
                               w-12 h-12 rounded-full bg-gradient-to-br from-red-700 to-red-900
-                              flex items-center justify-center text-2xl font-medieval border-2 
+                              flex items-center justify-center text-xl font-medieval border-2 
                               border-red-500/30 shadow-lg shadow-red-900/50">
-                  {index + 1}
+                  <span className="mr-1">{index + 1}</span>
+                  <span className="text-lg">{circle.icon}</span>
                 </div>
                 
                 {/* Content */}
                 <div className={`space-y-2 ${index % 2 === 0 ? 'md:order-2' : ''}`}>
-                  <h3 className="text-2xl font-medieval text-red-500">{circle.name}</h3>
+                  <h3 className="text-2xl font-medieval text-red-500 flex items-center gap-2">
+                    {circle.name}
+                    <span className="text-2xl">{circle.icon}</span>
+                  </h3>
                   <p className="text-gray-400">{circle.theme}</p>
                   <div className="text-sm space-y-1">
                     <p className="text-gray-300">Challenge: {circle.challenge}</p>
@@ -116,16 +141,11 @@ const CirclesRoadmap = () => {
                   </div>
                 </div>
                 
-                {/* Themed Icon/Image */}
-                <div className={`relative h-32 rounded-lg overflow-hidden 
-                              ${index % 2 === 0 ? 'md:order-1' : ''}`}>
-                  <Image
-                    src={`/images/circles/circle-${index + 1}.jpg`}
-                    alt={circle.name}
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+                {/* Entry Fee */}
+                <div className={`text-sm ${index % 2 === 0 ? 'md:order-1' : ''}`}>
+                  <p className="text-yellow-500">
+                    Entry Fee: {(0.001 * Math.pow(5, index)).toFixed(3)} ETH
+                  </p>
                 </div>
               </div>
             </motion.div>

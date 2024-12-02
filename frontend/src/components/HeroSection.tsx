@@ -99,7 +99,7 @@ const HeroSection = () => {
         
         <div className="flex flex-col items-center space-y-4 px-4">
           <Link 
-            href="https://app.circles.ink"
+            href="https://replit.com/@nadeemb53/LyraAI"
             target="_blank"
             className="w-full sm:w-auto"
           >

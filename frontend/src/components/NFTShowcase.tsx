@@ -4,23 +4,23 @@ const nfts = [
   {
     id: 1,
     name: "Dante's Sword",
-    image: "/images/nfts/sword.png",
+    image: "/assets/nfts/sword.png",
     rarity: "Legendary",
-    bonus: "+10% Trading Volume"
+    bonus: "Increased chance of persuading Lyra"
   },
   {
     id: 2,
-    name: "Virgil's Guide",
-    image: "/images/nfts/guide.png",
+    name: "Virgil's Guidance",
+    image: "/assets/nfts/virgil.png",
     rarity: "Epic",
-    bonus: "+5% Success Rate"
+    bonus: "Extra attempts with Lyra"
   },
   {
     id: 3,
-    name: "Infernal Map",
-    image: "/images/nfts/map.png",
+    name: "Map of Inferno",
+    image: "/assets/nfts/map.png",
     rarity: "Rare",
-    bonus: "Circle Skip Chance"
+    bonus: "Reveals circle secrets"
   }
 ];
 
