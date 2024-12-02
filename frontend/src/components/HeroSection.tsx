@@ -78,7 +78,7 @@ const HeroSection = () => {
         <div className="mb-6 md:mb-8 animate-pulse">
           <span className="text-red-500 font-medieval text-lg md:text-xl">Powered by</span>
           <Link 
-            href="https://framework.circles.ink" 
+            href="https://github.com/nadeemb53/circles-ink/blob/main/virality-framework-doc/README.md" 
             target="_blank"
             className="ml-2 text-lg md:text-xl font-medieval text-red-400 hover:text-red-300 transition-colors"
           >
