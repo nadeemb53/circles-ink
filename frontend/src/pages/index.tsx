@@ -10,7 +10,7 @@ import CirclesRoadmap from '@/components/CirclesRoadmap';
 
 
 import { createHmac } from 'crypto';
-import { useLaunchParams } from '@telegram-apps/sdk-react';
+import { LaunchParams, useLaunchParams } from '@telegram-apps/sdk-react';
 
  //TODO: Fill env variables. 
  const BOT_TOKEN = ''
@@ -18,7 +18,12 @@ import { useLaunchParams } from '@telegram-apps/sdk-react';
  const ClientSecret = ''
 
 function MyHome() {
-  const launcParams = useLaunchParams();
+  var launchParams: LaunchParams;
+  try {
+    launchParams = useLaunchParams()
+  } catch{
+    console.log("Launch params not found")
+  }
   const [prizePool, setPrizePool] = useState(156842);
 
   const [WebApp, setWebApp] = useState<any>(null);
@@ -62,7 +67,7 @@ function MyHome() {
         setWebApp(WebAppModule.default);
         
         // Import and use SDK hooks only after confirming we're on client side
-        const params = launcParams?.initDataRaw;
+        const params = launchParams?.initDataRaw;
         
         if(params){
           setValidUser(false);
