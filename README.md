@@ -1,4 +1,4 @@
-# Dante's Circles
+# Dante's Circles [Unfold '24 Winning Project]
 ### A Web3 Journey Through the Nine Circles
 
 ![Smart Contract](https://img.shields.io/badge/Ethereum-Solidity-green) ![Frontend](https://img.shields.io/badge/Frontend-Next.js-black) ![AI](https://img.shields.io/badge/AI-LyraAI-purple)
